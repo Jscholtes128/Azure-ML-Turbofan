@@ -32,7 +32,7 @@ experiement_name = 'local-gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)
-src = ScriptRunConfig(source_directory='./', script='04-train_runconfig.py',run_config=local_run)
+src = ScriptRunConfig(source_directory='./', script='01-train.py',run_config=local_run)
 
 run = exp.submit(src)
 
