@@ -5,9 +5,12 @@ from azureml.core.workspace import Workspace
 from azureml.core.runconfig import RunConfiguration
 import json
 from azureml.core.authentication import AzureCliAuthentication
+import sys
 
 
-with open("/aml_config.json") as f:
+cli_auth = AzureCliAuthentication()
+
+with open("config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -35,7 +38,7 @@ experiement_name = 'local-gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)
-src = ScriptRunConfig(source_directory='./', script='01-train.py',run_config=local_run)
+src = ScriptRunConfig(source_directory='compute/', script='01-train.py',run_config=local_run)
 
 run = exp.submit(src,tags={"build number": sys.argv[1]})
 
