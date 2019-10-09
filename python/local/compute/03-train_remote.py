@@ -6,7 +6,7 @@ from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 import json
 
-with open("../aml_config.json") as f:
+with open("python/local/config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -39,7 +39,7 @@ experiement_name = 'remote-gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)
-src = ScriptRunConfig(source_directory='./', script='01-train.pyy',run_config=aml_run_config)
+src = ScriptRunConfig(source_directory='python/local/compute', script='01-train.pyy',run_config=aml_run_config)
 
 run = exp.submit(src)
 
