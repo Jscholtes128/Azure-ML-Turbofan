@@ -14,7 +14,7 @@ import json
 
 
 ################ Workspace ##############################
-with open("./aml_config.json") as f:
+with open("./config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
