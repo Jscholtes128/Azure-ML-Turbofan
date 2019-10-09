@@ -39,7 +39,7 @@ experiement_name = 'remote-gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)
-src = ScriptRunConfig(source_directory='compute/', script='01-train.pyy',run_config=aml_run_config)
+src = ScriptRunConfig(source_directory='compute/', script='01-train.py',run_config=aml_run_config)
 
 run = exp.submit(src)
 
