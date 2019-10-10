@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+## Create Azure ML Pipeline to train and deploy model
+##
 
 import azureml.core
 from azureml.core import Workspace, Datastore,Environment
@@ -53,7 +54,7 @@ def_blob_store.upload_files(
     overwrite=True)
 
 def_blob_store.upload_files(
-    ["aml_config.json"],
+    ["./config/aml_config.json"],
     target_path=".",
     overwrite=True)
 
@@ -140,7 +141,8 @@ trainStep = PythonScriptStep(
    # outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
-    source_directory="."
+    source_directory=".",
+    allow_reuse=False
 )
 
 
@@ -148,7 +150,8 @@ deployStep = PythonScriptStep(
     script_name="04-deploy_model.py",
     compute_target=compute_target,
     runconfig=aml_run_config,
-    source_directory="."
+    source_directory=".",
+    allow_reuse=False
 )
 
 deployStep.run_after(trainStep)
@@ -161,6 +164,8 @@ trainDeployModel = [deployStep]
 
 # Build the pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[trainDeployModel])
+
+################# Run and Deploy Pipeline ##############################
 
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Train_Deploy_Turbofan_Exp').submit(pipeline1)

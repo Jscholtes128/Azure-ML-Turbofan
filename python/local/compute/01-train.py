@@ -47,6 +47,7 @@ run.log('mae', mae)
 # Save the model to the outputs directory for capture
 
 model_file_name = 'model_{}_{}.pkl'.format(max_depth,n_estimators)
+#model_file_name = 'outputs/model.pkl'
  
 
 joblib.dump(value = regression_model, filename = model_file_name)

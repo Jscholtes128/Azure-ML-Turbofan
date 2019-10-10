@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+## General training file
+##
 
 from sklearn.ensemble import GradientBoostingRegressor
 import numpy as np

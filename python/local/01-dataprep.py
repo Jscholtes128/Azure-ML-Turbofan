@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
-
+## Download Turbofan data, calculate RUL and store for training
+##
 
 import numpy as np
 import pandas as pd

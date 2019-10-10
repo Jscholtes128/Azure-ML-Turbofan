@@ -1,3 +1,6 @@
+## Use Local Machine As Compute
+##
+
 from azureml.core import Environment
 from azureml.core import ScriptRunConfig
 from azureml.core.experiment import Experiment
@@ -5,7 +8,7 @@ from azureml.core.workspace import Workspace
 from azureml.core.runconfig import RunConfiguration
 import json
 
-with open("./..aml_config.json") as f:
+with open("./../config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -21,14 +24,11 @@ ws = Workspace(workspace_name = workspace_name,
 
 local_run = RunConfiguration()
 
-# Editing a run configuration property on-fly.
-#user_managed_env = Environment("user-managed-env")
-
 local_run.environment.python.user_managed_dependencies = True
 
 
 ############# Experiement local-gbr-turbofan ######################
-experiement_name = 'local-gbr-turbofan'
+experiement_name = 'gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)

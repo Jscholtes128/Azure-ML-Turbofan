@@ -1,3 +1,5 @@
+## Use Azure ML Compute for cloud training
+##
 
 from azureml.core import ScriptRunConfig
 from azureml.core.experiment import Experiment
@@ -6,7 +8,7 @@ from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 import json
 
-with open("./..aml_config.json") as f:
+with open("./../config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -35,7 +37,7 @@ aml_run_config.amlcompute._cluster_max_node_count = 2
 aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 
 ############# Experiement remote-gbr-turbofan ######################
-experiement_name = 'remote-gbr-turbofan'
+experiement_name = 'gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)

@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+## Register model from last experiment 
+## and deploy to Azure Container Instance
+##
 
 from azureml.core.webservice import AciWebservice, Webservice
 from azureml.core.image import ContainerImage

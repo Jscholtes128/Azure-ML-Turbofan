@@ -1,3 +1,5 @@
+## DevOps Build file for training 
+
 from azureml.core import Environment
 from azureml.core import ScriptRunConfig
 from azureml.core.experiment import Experiment
@@ -7,7 +9,7 @@ import json
 from azureml.core.authentication import AzureCliAuthentication
 import sys
 
-
+## DevOps auths with Azure CLI
 cli_auth = AzureCliAuthentication()
 
 with open("config/aml_config.json") as f:
@@ -27,14 +29,11 @@ ws = Workspace(workspace_name = workspace_name,
 
 local_run = RunConfiguration()
 
-# Editing a run configuration property on-fly.
-#user_managed_env = Environment("user-managed-env")
-
 local_run.environment.python.user_managed_dependencies = True
 
 
 ############# Experiement local-gbr-turbofan ######################
-experiement_name = 'local-gbr-turbofan'
+experiement_name = 'gbr-turbofan'
 
 
 exp = Experiment(workspace=ws, name=experiement_name)

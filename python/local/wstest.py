@@ -12,7 +12,7 @@ from azureml.core.workspace import Workspace
 import json
 
 ################ Workspace ##############################
-with open("./aml_config.json") as f:
+with open("./config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -32,3 +32,8 @@ try:
     print(ws.get_keys()[0])
 except Exception as e:
     print(e)
+
+
+lst = [x for x in ws.experiments['gbr-turbofan'].get_runs()][0]
+
+print(lst)
