@@ -47,13 +47,13 @@ try:
     headers = {'Content-Type':'application/json'}
     
     #for AKS deployment you'd need to the service key in the header as well    
-    headers = {'Content-Type':'application/json',  'Authorization':('Bearer '+ key)} 
+    headers = {'Content-Type':'application/json',  'Authorization':('Bearer '+ 'DWr1oUvE5te275ouxKfEDwsDmjRyIdBF')} 
     
     
-    resp = requests.post(uri, input_data, headers=headers)
+    resp = requests.post('http://28b77357-0b9e-4760-bac7-19a3dd34b608.centralus.azurecontainer.io/score', input_data, headers=headers)
     
     print("POST to url", uri)
-    #print("input data:", input_data)
+    print("input data:", input_data)
     print("label:", y)
     print("prediction:", resp.text)
 except Exception:
