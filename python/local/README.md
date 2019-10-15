@@ -1,6 +1,17 @@
+## Azure ML Turbo Fan 
+This series of projects demonstrates how to quickly leverage Azure Machine Learning Services from an on-premise Python ML development environment. The code located under _local_ starts with a local train file and progresses to being able to track you experiment runs, leverage both local and Azure compute, register your model version and finally deploy your model as a RESTful service.
+
+
+## [How Azure Machine Learning works: Architecture and concepts](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture)
+Learn about the architecture, concepts, and workflow for Azure Machine Learning
+
+![workflow](../../images/workflow.png)
+
 
 ## Prerequisites
-Set-up you local environment:
+Set-up on Azure Portal:
+<br/>[Create and manage Azure Machine Learning workspaces in the Azure portal(https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-manage-workspace)
+<br/>Set-up you local environment:
 <br/>[Configure a development environment for Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#local)
 
 ## Python files for data prep, train, track expereiements, and deploy model:
