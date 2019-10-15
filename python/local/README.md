@@ -1,6 +1,7 @@
 
-## Set-up you local environment
-[Configure a development environment for Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#local)
+## Prerequisites
+Set-up you local environment:
+<br/>[Configure a development environment for Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-environment#local)
 
 ## Python files for data prep, train, track expereiements, and deploy model:
 
