@@ -2,7 +2,7 @@
 
 Using Azure Machine Learning Service Python SDK to
 
-- Using SDK from [Local Environment](/local)
+- Using SDK from [Local Environment](python/local/)
    - Track local experiements using Azure Machine Learning Workspace
    - Register ML models and deploy to Azure Container Instance
 - Cloud Compute
