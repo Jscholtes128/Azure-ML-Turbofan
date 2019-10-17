@@ -37,7 +37,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1,aut
 
 image_config = ContainerImage.image_configuration(execution_script = "score.py", 
                                     runtime = "python", 
-                                    conda_file = "my.yml")
+                                    conda_file = "turbofan.yml")
 
 
 try:

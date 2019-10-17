@@ -11,20 +11,29 @@ from random import randrange,randint
 from azureml.core.run import Run
 from sklearn.externals import joblib
 import argparse
+import os
 
 
 
-parser = argparse.ArgumentParser("06-Pipeline_Train")
+parser = argparse.ArgumentParser("pipeline_train")
 parser.add_argument("--max_depth", type=int, help="pipeline parameter")
 parser.add_argument("--n_estimators", type=int, help="pipeline parameter")
+parser.add_argument("--output_train", type=str, help="output_train directory")
+parser.add_argument("--input", type=str, help="output_train directory")
+
+
 
 args = parser.parse_args()
 
 max_depth = args.max_depth
 n_estimators = args.n_estimators
 
+if not (args.output_train is None):
+    os.makedirs(args.output_train, exist_ok=True)
+    print("%s created" % args.output_train)
 
-train = pd.read_csv("data/turbofan.csv")
+train = pd.read_csv(args.input)
+#train = pd.read_csv("data/turbofan.csv")
 
 X = train.drop('rul',axis=1)
 y = pd.Series(train.rul)
@@ -54,8 +63,8 @@ run.log('mae', mae)
 
 # Save the model to the outputs directory for capture
 
-model_file_name = 'model_{}_{}.pkl'.format(max_depth,n_estimators)
-#model_file_name = 'outputs/model.pkl'
+#model_file_name = 'model_{}_{}.pkl'.format(max_depth,n_estimators)
+model_file_name =  args.output_train + '/model.pkl'
 
 
 joblib.dump(value = regression_model, filename = model_file_name)

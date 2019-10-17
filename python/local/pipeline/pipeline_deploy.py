@@ -6,13 +6,23 @@ from azureml.core.webservice import AciWebservice, Webservice
 from azureml.core.image import ContainerImage
 from azureml.core.experiment import Experiment
 from azureml.core.workspace import Workspace
+from azureml.core.model import Model
 import json
+import argparse
+
+parser = argparse.ArgumentParser("pipeline_deploy")
+parser.add_argument("--output_train", type=str, help="output_train directory")
+parser.add_argument("--input_config", type=str, help="input config directory")
+
+
+
+args = parser.parse_args()
 
 
 webservice_name = 'turbofan-rul'
 
 ################ Workspace ##############################
-with open("./config/aml_config.json") as f:
+with open(args.input_config) as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -29,7 +39,13 @@ run = [x for x in ws.experiments['gbr-turbofan'].get_runs()][0]
 
 print(run)
 
-model = run.register_model(model_name = "sklearn-gbr-model", model_path = "outputs/model.pkl")
+#model = run.register_model(model_name = "sklearn-gbr-model", model_path = "outputs/model.pkl")
+# Register model
+model = Model.register(workspace = ws,
+                        model_path =args.output_train + '/model.pkl',
+                        model_name = "sklearn-gbr-model",
+                        tags = {"deploy": "pipeline"},
+                        description = "Sklearn Nasa Turbofan RUL Regression",)
 
 
 aci_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1,auth_enabled=True)
@@ -37,7 +53,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1,aut
 
 image_config = ContainerImage.image_configuration(execution_script = "score.py", 
                                     runtime = "python", 
-                                    conda_file = "my.yml")
+                                    conda_file = "turbofan.yml")
 
 
 try:

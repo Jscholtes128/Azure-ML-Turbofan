@@ -15,7 +15,7 @@ from azureml.core.runconfig import RunConfiguration
 import json
 
 ################ Workspace ##############################
-with open("./config/aml_config.json") as f:
+with open("./../config/aml_config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
@@ -49,13 +49,13 @@ def_blob_store.upload_files(
     overwrite=True)
 
 def_blob_store.upload_files(
-    ["./../my.yml"],
+    ["./../turbofan.yml"],
     target_path=".",
     overwrite=True)
 
 def_blob_store.upload_files(
     ["./../config/aml_config.json"],
-    target_path=".",
+    target_path="config",
     overwrite=True)
 
 
@@ -64,6 +64,12 @@ blob_input_data = DataReference(
     datastore=def_blob_store,
     data_reference_name="train_data",
     path_on_datastore="data/turbofan.csv")
+
+
+input_config = DataReference(
+    datastore=def_blob_store,
+    data_reference_name="config_file",
+    path_on_datastore="config/aml_config.json")
 
 
 output_data1 = PipelineData(
@@ -136,9 +142,9 @@ pipeline_param_n_estimators = PipelineParameter(
     
 trainStep = PythonScriptStep(
     script_name="pipeline_train.py",
-     arguments=["--max_depth", pipeline_param_max_depth,"--n_estimators",pipeline_param_n_estimators],   
+     arguments=["--max_depth", pipeline_param_max_depth,"--n_estimators",pipeline_param_n_estimators,"--input", blob_input_data,"--output_train",output_data1],   
     inputs=[blob_input_data],
-   # outputs=[output_data1],
+    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     source_directory=".",
@@ -148,6 +154,8 @@ trainStep = PythonScriptStep(
 
 deployStep = PythonScriptStep(
     script_name="pipeline_deploy.py",
+     arguments=["--output_train",output_data1,"--input_config", input_config],   
+    inputs=[input_config,output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     source_directory=".",
