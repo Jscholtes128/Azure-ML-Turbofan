@@ -8,6 +8,8 @@ Create Pipeline:
  - [01-build-pipeline.py](01-build-pipeline.py)
  <br/> This script builds and deploys an ML pipeline using 2 steps: step 1 train model, step 2 deploy model. Once deployed the Pipeline RESTful endpoint can be used to trigger the entire pipeline to retrain and deploy a model.
  
+<br/>**When building the pipeline you will be asked to authenticate! Please update aml_config.json to use your workspace**
+ 
  
  Pipeline Resources:
  - [pipeline_train.py](pipeline_train.py)
