@@ -10,13 +10,13 @@ Review the [Azure Machine Learning Service CI\CD How-to Guide](https://docs.micr
 
 ![devops](../../../images/mlops_diagram.PNG)
 
-The CI/CD Pipele in this example re-trains uses the file:
+The CI/CD Pipeline in this example re-trains uses the file:
 - [01-train.py](01-train.py)
 
 
 ### Azure DevOps Pipeline
 
-The [Azure Machine Learning Service CI\CD How-to Guide](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) offers futher details into the following steps:
+The [Azure Machine Learning Service CI\CD How-to Guide](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) offers further details into the following steps:
 
 #### Build Pipeline
 simple pipeline that checks-out the code from GitHub, sets-up training environment then runs the training python script.
@@ -31,7 +31,7 @@ This build is using python 3.5.
 ![devops](../../../images/mlops3.PNG)
 
 ### Bash script to set-up environment
-The install requirments script will install the Azure CLI and pip install packages with requirements text file. The run location is important as the bash script needs access to the additional configuration files.
+The install requirements script will install the Azure CLI and pip install packages with requirements text file. The run location is important as the bash script needs access to the additional configuration files.
 ![devops](../../../images/mlops4.PNG)
 
 ### Training
