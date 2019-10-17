@@ -16,3 +16,9 @@ Create Pipeline:
  <br/> script used in pipeline for model training
  - [pipeline_deploy.py](pipeline_deploy.py)
  </br> script used in pipeline for model deployment
+ 
+ ## Deployed Pipeline
+ ![Pipeline1](../../../images/pipeline1.PNG)
+ 
+ ### Pipeline Graph
+ ![Pipeline2](../../../images/pipeline2.PNG)
