@@ -8,7 +8,7 @@ With Azure Machine Learning, you can train your model on a variety of resources 
 ## Python File for Local and Remote Compute:
 
 ### [01-train.py](01-train.py)
-Training script used by both local and remote runs. Use [ScriptRunConfig](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments#option-2-use-scriptrunconfig) to track experiement when running on different resources.
+Training script used by both local and remote runs. Use [ScriptRunConfig](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments#option-2-use-scriptrunconfig) to track experiments when running on different resources.
 ### [02-train_local_env.py](02-train_local_env.py)
 Run 01-train script using local resources
 ### [03-train_remote.py](03-train_remote.py)
