@@ -51,3 +51,4 @@ Conda dependency file for deployment image
 Scoring file used for model inferencing from web service.
 ### [aml_config.json](config/aml_config.json) ([config](config/) directory)
 Global configurations for connecting to Azure Machine Learning Workspace
+<br/> **Please update aml_config.json to use your workspace**
