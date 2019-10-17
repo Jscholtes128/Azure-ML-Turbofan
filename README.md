@@ -6,6 +6,6 @@
 - Using AML to change [compute targets](python/local/compute)
    - Train with both local and cloud compute
 - Azure AI/ML & [MLOps](python/local/devops) (Pipelines and Azure DevOps)
-   - Build and deploy an Azure Machine Learning [Pipeline](python/local/pipeline) for model traning, model registration and model deployment.
+   - Build and deploy an Azure Machine Learning [Pipeline](python/local/pipeline) for model training, model registration and model deployment.
    - Scripts for CD/CD with Azure [DevOps](python/local/devops)
 
