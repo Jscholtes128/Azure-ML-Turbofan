@@ -1,7 +1,10 @@
 ## Azure ML Turbo Fan 
 This series of projects demonstrates how to quickly leverage Azure Machine Learning Services from an on-premise Python ML development environment. The code located under _local_ starts with a local train file and progresses to being able to track you experiment runs, leverage both local and Azure compute, register your model version and finally deploy your model as a RESTful service.
 
-## Projects
+### Projects
+- Using Azure Machine Learning Service (AML) Python SDK from [Local Environment](python/local/)
+   - Track local experiments using Azure Machine Learning Workspace
+   - Register ML models and deploy to Azure Container Instance
 - Using AML to change [compute targets](compute)
    - Train with both local and cloud compute
 - Azure AI/ML & [MLOps](devops) (Pipelines and Azure DevOps)
