@@ -1,6 +1,6 @@
 {
-    "subscription_id": "",
-    "resource_group": "",
-    "workspace_name": "",
+    "subscription_id": "0a6d383c-9ce6-490d-89b8-47e6231192c3",
+    "resource_group": "AzureML",
+    "workspace_name": "AzureML",
     "location": "centralus"
 }
