@@ -40,6 +40,7 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                     conda_file = "turbofan.yml")
 
 
+
 try:
     service = Webservice(ws, webservice_name)        
     service.delete()
