@@ -9,3 +9,6 @@
    - Build and deploy an Azure Machine Learning [Pipeline](python/local/pipeline) for model training, model registration and model deployment.
    - Scripts for CD/CD with Azure [DevOps](python/local/devops)
 
+
+asdas
+
