@@ -4,13 +4,16 @@
 
 This collections of examples highlights the flexibility of Azure Machine Learning Service.
 
-## [Example 1. Azure Machine Learning with Local Python Code](/python)
+## [Getting Started](/setup)
+Please start here to ensure you are ready to start working through the examples.
+
+## [Example 1: Azure Machine Learning with Local Python Code](/python)
   We will look at how easy it is to leverage the Azure ML python SDKs with local python code to start tracking experiment metrics, registering models and the deploying our models.
 
-## [Example 2: Azure Machine Learning & Databricks](/databricks)
+## [Example 2: Azure Machine Learning Pipeline](/pipeline)
 Finally we will introduce combining Spark with Azure Machine Learning through the use of Databricks and Spark.ML. Here we will also intr
 
-## [Example 3. Azure Machine Learning Notebooks](/notebooks)
+## [Example 3: Azure Machine Learning Notebooks](/notebooks)
 Here we will move away from worrying about our local development environment and look at Azure Machine Learning Notebooks.
 
 ## [Example 4. Azure Machine Learning Designer](/designer)
@@ -22,17 +25,7 @@ Now we
 ## [Example 6: Azure Machine Learning & Databricks](/databricks)
 Finally we will introduce combining Spark with Azure Machine Learning through the use of Databricks and Spark.ML. Here we will also intr
 
+## Example 7: Real-Time Inferencing
 
-
-- Using Azure Machine Learning Service (AML) Python SDK from [Local Environment](python/local/)
-   - Track local experiments using Azure Machine Learning Workspace
-   - Register ML models and deploy to Azure Container Instance
-- Using AML to change [compute targets](python/local/compute)
-   - Train with both local and cloud compute
-- Azure AI/ML & [MLOps](python/local/devops) (Pipelines and Azure DevOps)
-   - Build and deploy an Azure Machine Learning [Pipeline](python/local/pipeline) for model training, model registration and model deployment.
-   - Scripts for CD/CD with Azure [DevOps](python/local/devops)
-
-
-asdas
+## Example 8: MLOPs with Azure DevOps
 

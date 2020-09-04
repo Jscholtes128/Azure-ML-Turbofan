@@ -11,7 +11,7 @@ def register_model(model_dir, model_name, accuracy, test_dir, workspace):
     Registers a new model
     '''
     model = Model.register(
-        model_path = model_dir,
+        model_path = model_dir + 'model.pkl',
         model_name = model_name,
         tags = {
             'accuracy': accuracy, 
@@ -37,7 +37,7 @@ scoring_url = args.scoring_url
 
 # Define model and service names
 service_name = 'turbofan-rul-service'
-model_name = 'turbofan-rul-pipeline'
+model_name = 'turbofan-pipeline-rul'
 
 # Get run context
 run = Run.get_context()

@@ -2,7 +2,7 @@
 
 Use [Azure Machine Learning pipelines](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-your-first-pipeline) to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
 
-![ML Pipeline](../../../images/pipeline-flow.png)
+![ML Pipeline](../images/pipeline-flow.png)
 
 Create Pipeline:
  - [01-build-pipeline.py](01-build-pipeline.py)
@@ -18,7 +18,7 @@ Create Pipeline:
  </br> script used in pipeline for model deployment
  
  ## Deployed Pipeline
- ![Pipeline1](../../../images/pipeline1.PNG)
+ ![Pipeline1](../images/pipeline1.PNG)
  
  ### Pipeline Graph
- ![Pipeline2](../../../images/pipeline2.PNG)
+ ![Pipeline2](../images/pipeline2.PNG)
