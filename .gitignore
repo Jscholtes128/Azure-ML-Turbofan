@@ -2,3 +2,5 @@ devops/config/aml_config.json
 python/config/aml_config.json
 pipeline/config/aml_config.json
 pipeline/config/aml_config.json
+aml_config.json
+

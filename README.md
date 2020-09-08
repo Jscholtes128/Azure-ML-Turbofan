@@ -25,7 +25,5 @@ Now we
 ## [Example 6: Azure Machine Learning & Databricks](/databricks)
 Finally we will introduce combining Spark with Azure Machine Learning through the use of Databricks and Spark.ML. Here we will also intr
 
-## Example 7: Real-Time Inferencing
-
-## Example 8: MLOPs with Azure DevOps
+## [Example 7: MLOPs with Azure DevOps](/devops)
 
