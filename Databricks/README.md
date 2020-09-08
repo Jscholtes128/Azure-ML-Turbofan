@@ -11,9 +11,6 @@
 
 -- Create Cluster for Azure 
 
-
-
-
 ## 2. Data Load
 
 ### 2 Set-up Secret Store with Azure Key Vault
@@ -36,13 +33,13 @@ az keyvault create --name $keyVaultName --resource-group $resourceGroupName --lo
 #### 2.2.1 Get Storage Account Key
 
 Copy Storage account name and key 1 to a text editor for later use in this tutorial.
-![account key](../images/storage-access-keys.png)
+![account key](/images/storage-access-keys.png)
 
 #### 2.2.2 Create Azure Key Vault Secret
 
 Navigate to your newly created key vault in the Azure portal and select Secrets. Then, select + Generate/Import.
 
-![import key](../images/generate-import-secrets.png)
+![import key](/images/generate-import-secrets.png)
 
 On the Create a secret page, provide the following information, and keep the default values for the remaining fields:
 
@@ -52,24 +49,24 @@ On the Create a secret page, provide the following information, and keep the def
 |Name| Friendly name for your storage account key.|
 |Value|key1 from your storage account.|
 
-![create secret](../images/create-storage-secret.png)
+![create secret](/images/create-storage-secret.png)
 
 Save the key name in a text editor for use later in this tutorial, and select Create. Then, navigate to the Properties menu. Copy the DNS Name and Resource ID to a text editor for use later in the tutorial.
 
-![copy resources](../images/copy-dns-resource.png)
+![copy resources](/images/copy-dns-resource.png)
 
 #### 2.2.3 Create Azure Databricks Secret Scope
 
 Navigate to your newly created Azure Databricks resource in the Azure portal and select Launch Workspace.
 
-![launch workspace](../images/launch-databricks-workspace.png)
+![launch workspace](/images/launch-databricks-workspace.png)
 
 Once your Azure Databricks workspace is open in a separate window, append #secrets/createScope to the URL. The URL should have the following format:
 __https://<\location>.azuredatabricks.net/?o=<\orgID>#secrets/createScope.__
 
 Enter a scope name, and enter the Azure Key Vault DNS name and Resource ID you saved earlier. Save the scope name in a text editor for use later in this tutorial. Then, select Create.
 
-![create scope](../images/create-secret-scope.png)
+![create scope](/images/create-secret-scope.png)
 
 ### 2.3 Mounting Azure Storage Account with Azure Databricks
 
@@ -77,7 +74,7 @@ Enter a scope name, and enter the Azure Key Vault DNS name and Resource ID you s
 
 From the home page of your Azure Databricks workspace, select New Cluster under Common Tasks.
 
-![create cluster](../images/create-new-cluster.png)
+![create cluster](/images/create-new-cluster.png)
 
 Enter a cluster name and select Create cluster. The cluster creation takes a few minutes to complete.
 
@@ -85,7 +82,7 @@ Enter a cluster name and select Create cluster. The cluster creation takes a few
 
 Once the cluster is created, navigate to the home page of your Azure Databricks workspace, select New Notebook under Common Tasks. This will be the Notebook for the initial __Data Load__.
 
-![create notebook](../images/create-new-notebook.png)
+![create notebook](/images/create-new-notebook.png)
 
 Enter a notebook name (_Data Load_ or _01-Data Load_ or something similar), and set the language to Python. Set the cluster to the name of the cluster you created in the previous step.
 
@@ -132,7 +129,7 @@ df.write.mode('overwrite').saveAsTable('TurboFanData')
 
 View  Data
 
-![select customers](../images/select_customer_churn.PNG)
+![select customers](/images/select_customer_churn.PNG)
 
 
 
