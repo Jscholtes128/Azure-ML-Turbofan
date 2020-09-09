@@ -11,7 +11,7 @@ def register_model(model_dir, model_name, accuracy, test_dir, workspace):
     Registers a new model
     '''
     model = Model.register(
-        model_path = model_dir + 'model.pkl',
+        model_path = model_dir + '/model.pkl',
         model_name = model_name,
         tags = {
             'accuracy': accuracy, 
@@ -48,17 +48,17 @@ with open(accuracy_file) as f:
     accuracy = f.read()
 
 # Register model if accuracy is higher or if test dataset has changed
-new_model = False
+new_model = True
 try:
     model = Model(workspace, model_name)
     prev_accuracy = model.tags['accuracy']
     prev_test_dir = model.tags['test_data']
-    if prev_test_dir != test_dir or prev_accuracy >= accuracy:
-        model = register_model(model_dir + 'model.pkl', model_name, accuracy, test_dir, workspace)
-        new_model = True
+    #if prev_test_dir != test_dir or prev_accuracy >= accuracy:
+    model = register_model(model_dir , model_name, accuracy, test_dir, workspace)
+    new_model = True
 except WebserviceException:
     print('Model does not exist yet')
-    model = register_model(model_dir + 'model.pkl', model_name, accuracy, test_dir, workspace)
+    model = register_model(model_dir , model_name, accuracy, test_dir, workspace)
     new_model = True
 
 # Deploy new webservice if new model was registered

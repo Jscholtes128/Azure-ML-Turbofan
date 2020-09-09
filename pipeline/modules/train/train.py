@@ -39,7 +39,7 @@ print('Saving model')
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-joblib.dump(value = regression_model, filename = output_dir + 'model.pkl' )
+joblib.dump(value = regression_model, filename = output_dir + '/model.pkl' )
 
 
 

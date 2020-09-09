@@ -22,7 +22,7 @@ Then we will use the data building a 'no-code' solution in Azure Machine Learnin
 ## [Example 5. Azure Machine Learning AutoML](/automl)
 Now we 
 
-## [Example 6: Azure Machine Learning & Databricks](/databricks)
+## [Example 6: Azure Machine Learning & Databricks](/Databricks)
 Finally we will introduce combining Spark with Azure Machine Learning through the use of Databricks and Spark.ML. Here we will also intr
 
 ## [Example 7: MLOPs with Azure DevOps](/devops)

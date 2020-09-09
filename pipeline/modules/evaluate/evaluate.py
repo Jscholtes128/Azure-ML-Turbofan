@@ -25,7 +25,7 @@ test = pd.read_csv(test_dir + 'test.csv')
 X_test = test.drop('rul',axis=1)
 Y_test = pd.Series(test.rul)
 
-model = joblib.load(model_dir + 'model.pkl')
+model = joblib.load(model_dir + '/model.pkl')
 
 y_pred = model.predict(X_test)
 
