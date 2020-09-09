@@ -13,7 +13,8 @@ def init():
     global model
     # retreive the path to the model file using the model name
     pth = Model.get_model_path('turbofan-pipeline-rul')
-    model_path = os.path.join(pth, 'model.pkl')
+    model_path = pth 
+    #os.path.join(pth, 'model.pkl')
     #os.getenv('AZUREML_MODEL_DIR')
     model = joblib.load(model_path)
     
