@@ -9,23 +9,23 @@ In this example we are going to use Azure Machine Learning Notebooks to create o
 ### 1.1 Create Azure ML Dataset
 
 
-![ds design](../images/datasets.jpg)
+![ds design](../images/datasets.JPG)
 
 Go to Azure ML Datasets and **create a dataset** **From local files**
 
-![ds design](../images/create_dataset.jpg)
+![ds design](../images/create_dataset.JPG)
 
 Create a **Tabular** dataset with a relevant name.
 
-![ds design](../images/dataset_basic.jpg)
+![ds design](../images/dataset_basic.JPG)
 
 Select the downloaded *turbofan.csv* file as your source data.
 
-![ds design](../images/dataset_file.jpg)
+![ds design](../images/dataset_file.JPG)
 
 Use **comma delimited** and specify to *Use headers from the first file*
 
-![ds design](../images/dataset_settings.jpg)
+![ds design](../images/dataset_settings.JPG)
 
 Keep the default schema and click **create** on the confirmation screen.
 
