@@ -1,5 +1,7 @@
 ## Azure Machine Learning DevOps (MLOPs)
 
+![ds design](../images/datascience.png)
+
 Use [Azure Pipeline](https://azure.microsoft.com/en-us/services/devops/pipelines/) to automatically train and deploy machine learning models with Azure Machine Learning Service.
 This example demonstrates a build pipeline to train a model on code check-in to GitHub.
 
@@ -20,23 +22,23 @@ The [Azure Machine Learning Service CI\CD How-to Guide](https://docs.microsoft.c
 
 #### Build Pipeline
 simple pipeline that checks-out the code from GitHub, sets-up training environment then runs the training python script.
-![devops](/images/mlops1.PNG)
+![devops](../images/mlops1.PNG)
 
 ### Source Control Integration
 DevOps can integrate with different source control for triggering builds and checking-out code. 
-![devops](/images/mlops2.PNG)
+![devops](../images/mlops2.PNG)
 
 ### Python Environment
 This build is using python 3.5.
-![devops](/images/mlops3.PNG)
+![devops](../images/mlops3.PNG)
 
 ### Bash script to set-up environment
 The install requirements script will install the Azure CLI and pip install packages with requirements text file. The run location is important as the bash script needs access to the additional configuration files.
-![devops](/images/mlops4.PNG)
+![devops](../images/mlops4.PNG)
 
 ### Training
 The training script uses the Azure CLI authentication to access Azure Machine Learning Workspace without the interactive authentication. The training script will use the build number as a tag in the AML experiment. 
-![devops](/images/mlops5.PNG)
+![devops](../images/mlops5.PNG)
 
 ### Completed Runs
-![devops](/images/mlops6.PNG)
+![devops](../images/mlops6.PNG)

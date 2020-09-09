@@ -1,6 +1,6 @@
 # Azure Machine Learning Examples - Predicting Remaining Useful Life of TurboFan
 
-![ds design](/images/datascience.png)
+![ds design](../images/datascience.png)
 
 ## 1 Getting Started
 
