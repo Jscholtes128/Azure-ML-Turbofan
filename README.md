@@ -13,7 +13,7 @@ Please start here to ensure you are ready to start working through the examples.
 ## [Example 2: Azure Machine Learning Pipeline](pipeline/)
 Finally we will introduce combining Spark with Azure Machine Learning through the use of Databricks and Spark.ML. Here we will also intr
 
-## [Example 3: Azure Machine Learning Notebooks](notebooks/)
+## [Example 3: Azure Machine Learning Notebooks](Notebooks/)
 Here we will move away from worrying about our local development environment and look at Azure Machine Learning Notebooks.
 
 ## [Example 4. Azure Machine Learning Designer](designer/)
