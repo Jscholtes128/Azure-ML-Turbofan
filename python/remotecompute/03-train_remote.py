@@ -55,7 +55,7 @@ aml_run_config.amlcompute._cluster_max_node_count = 2
 
 
 # Specify CondaDependencies obj, add necessary packages
-aml_run_config.environment.python.conda_dependencies = CondaDependencies("./../turbofan.yml")
+aml_run_config.environment.python.conda_dependencies = CondaDependencies("./../localscripts/turbofan.yml")
 
  #CondaDependencies.create(conda_packages=['scikit-learn'])
 
