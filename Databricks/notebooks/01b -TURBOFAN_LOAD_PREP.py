@@ -13,7 +13,11 @@ if not(True in [x.mountPoint == '/mnt/turbofan' for x in dbutils.fs.mounts()]):
 
 # COMMAND ----------
 
-df = spark.read.csv('/mnt/turbofan',header=True)
+df = spark.read.csv('/mnt/turbofan',header=True,inferSchema=True)
+
+
+# COMMAND ----------
+
 df.write.mode('overwrite').saveAsTable('TurboFanData')
 
 # COMMAND ----------
