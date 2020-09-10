@@ -9,33 +9,41 @@
 
 ## 1. Preparation
 
--- Create Cluster for Azure 
+## 1.1 Create Cluster
 
-## 2. Data Load
+## 1.2 Install Libraries
 
-### 2 Set-up Secret Store with Azure Key Vault
+### 1.2.1 Install Libraries using wheel files 
+
+## 2 Load TurboFan data from Download File
+
+The Databricks Notebook [01a - TURBOFAN_DOWNLOAD_PREP](/Databricks/notebooks/01a%20-%20TURBOFAN_DOWNLOAD_PREP.py) demonstrated how to create a Databricks managed table from the downloaded NASA TurboFan zip file. 
+
+## 3. Load TurboFan data from Azure Storage
+
+### 3.1 Set-up Secret Store with Azure Key Vault
 
 Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
 
-#### 2.1.1 Create an Azure Key Vault - Use Azure CLI
+#### 3.1.1  Create an Azure Key Vault - Use Azure CLI
 
 ```bash
 keyVaultName=churnhackaVault-$RANDOM
 az keyvault create --name $keyVaultName --resource-group $resourceGroupName --location $location
 ```
 
-#### 2.1.2 Create an Azure Key Vault - Use Azure Portal
+#### 3.1.2 Create an Azure Key Vault - Use Azure Portal
 
 [Create an Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-portal#create-a-vault)
 
-### 2.2 Create a Secret and Secret scope for Azure Storage Account
+### 3.2 Create a Secret and Secret scope for Azure Storage Account
 
-#### 2.2.1 Get Storage Account Key
+#### 3.2.1 Get Storage Account Key
 
 Copy Storage account name and key 1 to a text editor for later use in this tutorial.
 ![account key](../images/storage-access-keys.png)
 
-#### 2.2.2 Create Azure Key Vault Secret
+#### 3.2.2 Create Azure Key Vault Secret
 
 Navigate to your newly created key vault in the Azure portal and select Secrets. Then, select + Generate/Import.
 
@@ -55,7 +63,7 @@ Save the key name in a text editor for use later in this tutorial, and select Cr
 
 ![copy resources](../images/copy-dns-resource.png)
 
-#### 2.2.3 Create Azure Databricks Secret Scope
+#### 3.2.3 Create Azure Databricks Secret Scope
 
 Navigate to your newly created Azure Databricks resource in the Azure portal and select Launch Workspace.
 
@@ -68,9 +76,9 @@ Enter a scope name, and enter the Azure Key Vault DNS name and Resource ID you s
 
 ![create scope](../images/create-secret-scope.png)
 
-### 2.3 Mounting Azure Storage Account with Azure Databricks
+### 3.3 Mounting Azure Storage Account with Azure Databricks
 
-#### 2.3.1 Create Databricks Cluster
+#### 3.3.1 Create Databricks Cluster
 
 From the home page of your Azure Databricks workspace, select New Cluster under Common Tasks.
 
@@ -78,7 +86,7 @@ From the home page of your Azure Databricks workspace, select New Cluster under 
 
 Enter a cluster name and select Create cluster. The cluster creation takes a few minutes to complete.
 
-#### 2.3.2 Create Databricks Notebook
+#### 3.3.2 Create Databricks Notebook
 
 Once the cluster is created, navigate to the home page of your Azure Databricks workspace, select New Notebook under Common Tasks. This will be the Notebook for the initial __Data Load__.
 
@@ -86,13 +94,13 @@ Once the cluster is created, navigate to the home page of your Azure Databricks 
 
 Enter a notebook name (_Data Load_ or _01-Data Load_ or something similar), and set the language to Python. Set the cluster to the name of the cluster you created in the previous step.
 
-### 2.4 Loading Turbofan Data using Mount
+### 3.4 Loading Turbofan Data using Mount
 
-#### 2.4.1 Mount Storage Account
+#### 3.4.1 Mount Storage Account
 
 Mount the Azure Storage Account where the turbofan  CSV is stored; pass the recently created __secret scope__ and __secret__.
 
-##### 2.4.1.1 Example Mount
+##### 3.4.1.1 Example Mount
 
 Example mounting Azure Storage Account
 
@@ -108,7 +116,7 @@ extra_configs = {"<conf-key>":dbutils.secrets.get(scope = "<scope-name>", key = 
 * __scope-name__ is the name of the secret scope you created in the previous section.
 * __key-name__ is the name of they secret you created for the storage account key in your key vault.
 
-##### 2.4.1.2 Turbofan Mount
+##### 3.4.1.2 Turbofan Mount
 
 ```python
 if not(True in [x.mountPoint == '/mnt/turbofan' for x in dbutils.fs.mounts()]):
@@ -118,7 +126,7 @@ if not(True in [x.mountPoint == '/mnt/turbofan' for x in dbutils.fs.mounts()]):
     extra_configs = {"fs.azure.account.key.<your-storage-account-name>.blob.core.windows.net":dbutils.secrets.get(scope = "examplescope", key = "turbofan")})
 ```
 
-#### 2.4.1 Load Turbofan Data
+#### 3.4.1 Load Turbofan Data
 
 Read the csv data into a pyspark Dataframe and save as a table for use in additional NoteBooks.
 
@@ -130,6 +138,16 @@ df.write.mode('overwrite').saveAsTable('TurboFanData')
 View  Data
 
 ![select customers](../images/select_customer_churn.PNG)
+
+
+## 4. Prediction model with Spark.ML
+
+
+## 5. Tracking our experiment with Azure Machine Learning
+
+## 6. Deploying our model with Azure Machine Learning
+
+## 7. Using Azure Machine Learning AutoML to find the 'best model'
 
 
 
