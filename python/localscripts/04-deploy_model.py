@@ -72,6 +72,8 @@ except Exception as e:
 
 service = Model.deploy(ws, webservice_name, [model], inference_config, deployment_config)
 
+#service.get_logs()
+
 
 #service = Webservice.deploy_from_model(workspace=ws,
                                      #  name = webservice_name,
